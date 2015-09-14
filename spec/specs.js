@@ -1,6 +1,6 @@
 describe('removeNonAlphanumeric', function() {
   it("Check if the non-alphanumeric has been removed", function() {
-    expect(removeNonAlphanumeric("Hello,.3!")).to.equal("Hello3");
+    expect(removeNonAlphanumeric("Hello,.3!")).to.equal("hello3");
   });
 });
 
@@ -31,5 +31,11 @@ describe('splitStringIntoArray', function() {
 describe('countColumns', function() {
   it("Check if returns expected number of column", function() {
     expect(countColumns(["pet", "dog", "cat"])).to.equal(2);
+  });
+});
+
+describe('encrypt', function() {
+  it("Check that encrypted array is returned", function() {
+    expect(encrypt("Hello,.3!")[1]).to.equal("3");
   });
 });

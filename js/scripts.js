@@ -1,4 +1,5 @@
 var removeNonAlphanumeric = function(word){
+  word = word.toLowerCase();
   return word.replace(/\W/g, '');
 }
 
@@ -47,12 +48,11 @@ var splitStringIntoArray = function(encryptedString) {
   var updatedString = encryptedString;
 
   for(var i = 0; i < numWords; i++ ) {
-    encryptedArray[i] = updatedString.substring(0,5);
-    updatedString = encryptedString.slice(5);
+    encryptedArray.push(updatedString.substring(0,5));
+    updatedString = updatedString.slice(5);
   }
   return encryptedArray;
 }
-
 
 var countColumns = function(encryptedArray) {
   var num = Math.sqrt(encryptedArray.length);
@@ -61,3 +61,36 @@ var countColumns = function(encryptedArray) {
   }
   return Math.ceil(num);
 }
+
+var encrypt = function(userInput) {
+  var editedString = removeNonAlphanumeric(userInput);
+  var squareArray = splitWordsIntoSquares(editedString);
+  var encryptedString = splitArrayIntoColumns(squareArray);
+  return splitStringIntoArray(encryptedString);
+
+}
+
+$(document).ready(function() {
+  $("form#encrypter").submit(function(event) {
+    var userInput = $("input#message").val();
+    var encryptedString = encrypt(userInput);
+
+    var num = countColumns(encryptedString);
+
+    var newHTML = [];
+    for(var i = 0; i < num; i++) {
+      var newString = "";
+      var count = 0;
+      while(count < num && encryptedString[1]) {
+        newString = newString.concat(" ");
+        newString = newString.concat(encryptedString[0]);
+        encryptedString.shift();
+        count ++;
+       }
+       $(".result").append("<p>"+newString+"</p>");
+    }
+
+    $("#result").show();
+    event.preventDefault();
+  });
+});
