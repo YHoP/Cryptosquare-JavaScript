@@ -9,3 +9,9 @@ describe('countLines', function() {
     expect(countLines("HelloThere")).to.equal(3);
   });
 });
+
+describe('perfectSquare', function() {
+  it("Check if returns correct number of lines", function() {
+    expect(perfectSquare("TodayIsMondayLOL")).to.equal(true);
+  });
+});
