@@ -10,8 +10,6 @@ var countLines = function(splitWord) {
   return Math.ceil(num);
 }
 
-
-
 var splitWordsIntoSquares = function(splitLines) {
   var n = countLines(splitLines);
 
@@ -27,4 +25,18 @@ var splitWordsIntoSquares = function(splitLines) {
   }
 
   return wordArray;
+}
+
+var splitArrayIntoColumns = function(wordArray) {
+  var newArray = [];
+  var newWord = "";
+  for(var i = 0; i < wordArray.length; i++) {
+    var count = 0;
+    while(count < wordArray.length) {
+      newWord = newWord.concat(wordArray[count].substring(0,1));
+      wordArray[count] = wordArray[count].slice(1);
+      count ++;
+     }
+  }
+  return newWord;
 }
