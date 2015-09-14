@@ -18,6 +18,12 @@ describe('splitWordsIntoSquares', function() {
 
 describe('splitArrayIntoColumns', function() {
   it("Check if returns expected String", function() {
-    expect(splitArrayIntoColumns(["abc", "def", "ghi"])).to.equal("adgbehcfi");
+    expect(splitArrayIntoColumns(["abc", "def", "ghi", "j"])).to.equal("adgjbehcfi");
+  });
+});
+
+describe('splitStringIntoArray', function() {
+  it("Check if returns expected String", function() {
+    expect(splitStringIntoArray("HeythereHowAreYou")[1]).to.equal("ereHo");
   });
 });

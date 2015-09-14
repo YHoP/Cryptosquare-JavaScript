@@ -40,3 +40,15 @@ var splitArrayIntoColumns = function(wordArray) {
   }
   return newWord;
 }
+
+var splitStringIntoArray = function(encryptedString) {
+  var numWords = Math.ceil(encryptedString.length / 5);
+  var encryptedArray = [];
+  var updatedString = encryptedString;
+
+  for(var i = 0; i < numWords; i++ ) {
+    encryptedArray[i] = updatedString.substring(0,5);
+    updatedString = encryptedString.slice(5);
+  }
+  return encryptedArray;
+}
