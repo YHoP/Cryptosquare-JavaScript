@@ -6,12 +6,14 @@ describe('removeNonAlphanumeric', function() {
 
 describe('countLines', function() {
   it("Check if returns correct closest square root", function() {
-    expect(countLines("HelloThere")).to.equal(3);
+    expect(countLines("HelloThere")).to.equal(4);
   });
 });
 
-describe('perfectSquare', function() {
-  it("Check if returns correct number of lines", function() {
-    expect(perfectSquare("TodayIsMondayLOL")).to.equal(true);
+
+
+describe('splitWordsIntoSquares', function() {
+  it("Check if returns array of split words", function() {
+    expect(splitWordsIntoSquares( "TodayIsMondayLO")[3]).to.equal("yLO");
   });
 });

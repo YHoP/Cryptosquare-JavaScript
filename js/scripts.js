@@ -4,13 +4,27 @@ var removeNonAlphanumeric = function(word){
 
 var countLines = function(splitWord) {
   var num = Math.sqrt(splitWord.length);
-  return Math.floor(num);
+  if (splitWord.length % num === 0) {
+    return num;
+  }
+  return Math.ceil(num);
 }
 
-var perfectSquare = function(lines){
 
-  if (lines.length % countLines(lines) === 0){
-    return true;
+
+var splitWordsIntoSquares = function(splitLines) {
+  var n = countLines(splitLines);
+
+  var wordArray = [];
+  var subStart = 0;
+  var subStop = n;
+
+  for(var i = 0; i < n; i ++) {
+    var str = splitLines.substring(subStart, subStop);
+    subStart += n;
+    subStop += n;
+    wordArray.push(str);
   }
-  return false;
+
+  return wordArray;
 }
