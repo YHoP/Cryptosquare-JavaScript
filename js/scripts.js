@@ -52,3 +52,12 @@ var splitStringIntoArray = function(encryptedString) {
   }
   return encryptedArray;
 }
+
+
+var countColumns = function(encryptedArray) {
+  var num = Math.sqrt(encryptedArray.length);
+  if (encryptedArray.length % num === 0) {
+    return num;
+  }
+  return Math.ceil(num);
+}

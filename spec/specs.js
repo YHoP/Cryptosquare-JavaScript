@@ -27,3 +27,9 @@ describe('splitStringIntoArray', function() {
     expect(splitStringIntoArray("HeythereHowAreYou")[1]).to.equal("ereHo");
   });
 });
+
+describe('countColumns', function() {
+  it("Check if returns expected number of column", function() {
+    expect(countColumns(["pet", "dog", "cat"])).to.equal(2);
+  });
+});
