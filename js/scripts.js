@@ -90,7 +90,13 @@ $(document).ready(function() {
        $(".result").append("<p>"+newString+"</p>");
     }
 
-    $("#result").show();
+    $(".result").show();
+
+    $(".reverse").text(userInput);
+    $("#reverse").click(function() {
+      $(".reverse").toggle();
+    });
+
     event.preventDefault();
   });
 });
