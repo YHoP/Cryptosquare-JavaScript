@@ -72,6 +72,7 @@ var encrypt = function(userInput) {
 
 $(document).ready(function() {
   $("form#encrypter").submit(function(event) {
+    $(".result").empty();
     var userInput = $("input#message").val();
     var encryptedString = encrypt(userInput);
 
@@ -90,11 +91,11 @@ $(document).ready(function() {
        $(".result").append("<p>"+newString+"</p>");
     }
 
-    $(".result").show();
+    $(".result").fadeIn();
 
     $(".reverse").text(userInput);
     $("#reverse").click(function() {
-      $(".reverse").toggle();
+      $(".reverse").fadeToggle();
     });
 
     event.preventDefault();
